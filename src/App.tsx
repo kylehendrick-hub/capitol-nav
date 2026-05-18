@@ -1,10 +1,11 @@
-import { useState, useMemo, useRef, useDeferredValue } from 'react';
+import { useState, useMemo, useRef, useDeferredValue, useEffect } from 'react';
 import { NavigationProvider, useNavigation } from './context/NavigationContext';
 import { MapProvider } from './context/MapContext';
 import { useAppGraph } from './hooks/useAppGraph';
 import { usePathfinding } from './hooks/usePathfinding';
 import { useGeoLocation } from './hooks/useGeoLocation';
 import { InteractiveMap } from './components/map/InteractiveMap';
+import { FindMyRep } from './components/FindMyRep';
 import { ROOMS } from './data/rooms';
 import { OCCUPANTS } from './data/occupants';
 import { BUILDING_MAP, BUILDINGS } from './data/buildings';
@@ -57,8 +58,46 @@ function AppInner() {
   const [pickedBuilding, setPickedBuilding] = useState<BuildingId | null>(null);
   const [destBuilding, setDestBuilding] = useState<BuildingId | null>(null);
   const [activeStepIdx, setActiveStepIdx] = useState(0);
+  const [showFindMyRep, setShowFindMyRep] = useState(false);
+  const [findRepMode, setFindRepMode] = useState<'start' | 'dest'>('dest');
   const screenRef = useRef(screen);
   screenRef.current = screen;
+
+  /* ---- Favorites ---- */
+  const [favorites, setFavorites] = useState<string[]>(() =>
+    JSON.parse(localStorage.getItem('capitolnav-favorites') || '[]')
+  );
+  const toggleFavorite = (roomId: string) => {
+    setFavorites(prev => {
+      const next = prev.includes(roomId) ? prev.filter(id => id !== roomId) : [...prev, roomId];
+      localStorage.setItem('capitolnav-favorites', JSON.stringify(next));
+      return next;
+    });
+  };
+  const isFavorite = (roomId: string) => favorites.includes(roomId);
+
+  /* ---- Accessibility ---- */
+  const [accessible, setAccessible] = useState(() =>
+    localStorage.getItem('capitolnav-accessible') === 'true'
+  );
+  const toggleAccessible = () => {
+    setAccessible(prev => {
+      const next = !prev;
+      localStorage.setItem('capitolnav-accessible', String(next));
+      return next;
+    });
+  };
+
+  /* ---- Favorites data helper ---- */
+  const favoriteItems = useMemo(() => {
+    return favorites.map(fid => {
+      const room = ROOMS.find(r => r.id === fid);
+      if (!room) return null;
+      const bldg = BUILDING_MAP.get(room.buildingId);
+      const occ = room.occupants.length ? OCCUPANTS.find(o => o.id === room.occupants[0]) : null;
+      return { id: room.id, number: room.number, name: occ?.name || room.label || `Room ${room.number}`, building: bldg?.shortName || '' };
+    }).filter(Boolean) as { id: string; number: string; name: string; building: string }[];
+  }, [favorites]);
 
   const { state: navState, dispatch } = useNavigation();
   const graph = useAppGraph();
@@ -67,6 +106,13 @@ function AppInner() {
 
   const deferredLocateText = useDeferredValue(locateText);
   const deferredSearchText = useDeferredValue(searchText);
+
+  /* Auto-select building when GPS detects it */
+  useEffect(() => {
+    if (geo.buildingId && !pickedBuilding) {
+      setPickedBuilding(geo.buildingId);
+    }
+  }, [geo.buildingId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   /* ---- Search filtering ---- */
   const searchItems = useMemo(() => {
@@ -112,12 +158,18 @@ function AppInner() {
   const pickDest = (roomId: string) => {
     const room = ROOMS.find((r: any) => r.id === roomId);
     if (!room || !startRoom) return;
+    if (room.id === startRoom.id) {
+      alert("You're already there!");
+      return;
+    }
     dispatch({ type: 'SET_END', room });
-    const route = computeRoute(startRoom, room, { accessible: false, avoidOutdoor: false });
+    const route = computeRoute(startRoom, room, { accessible, avoidOutdoor: false });
     if (route) {
       dispatch({ type: 'SET_ROUTE', route });
       setActiveStepIdx(0);
       setScreen('navigate');
+    } else {
+      alert('Route not found. These rooms may not be connected yet.');
     }
     setSearchText('');
   };
@@ -210,6 +262,20 @@ function AppInner() {
               <div className="brand-sub">Indoor navigation for Capitol Hill</div>
             </div>
 
+            {/* Accessibility toggle */}
+            <div className="a11y-row">
+              <span className="a11y-label">&#9855; Wheelchair accessible routes</span>
+              <button
+                className="toggle-track"
+                role="switch"
+                aria-checked={accessible}
+                onClick={toggleAccessible}
+                style={{ background: accessible ? '#0a84ff' : '#636366' }}
+              >
+                <span className="toggle-thumb" style={{ transform: accessible ? 'translateX(20px)' : 'translateX(0)' }} />
+              </button>
+            </div>
+
             {/* Title */}
             <h2 className="section-title">Where are you?</h2>
 
@@ -224,20 +290,28 @@ function AppInner() {
                 onChange={e => setLocateText(e.target.value)}
                 placeholder="Room number, name, or office..."
               />
+              {locateText && (
+                <button className="search-clear" onClick={() => setLocateText('')} aria-label="Clear search">&times;</button>
+              )}
             </div>
 
             {/* Search results */}
             {locateText.length >= 2 && searchItems.length > 0 ? (
               <div className="results-list">
                 {searchItems.map(item => (
-                  <button key={item.id} className="result-row" onClick={() => pickStart(item.id)}>
-                    <span className="result-badge">{item.badge}</span>
-                    <span className="result-info">
-                      <span className="result-name">{item.title}</span>
-                      <span className="result-sub">{item.sub}</span>
-                    </span>
-                    <span className="result-arrow">&rsaquo;</span>
-                  </button>
+                  <div key={item.id} className="result-row-wrap">
+                    <button className="result-row" onClick={() => pickStart(item.id)}>
+                      <span className="result-badge">{item.badge}</span>
+                      <span className="result-info">
+                        <span className="result-name">{item.title}</span>
+                        <span className="result-sub">{item.sub}</span>
+                      </span>
+                      <span className="result-arrow">&rsaquo;</span>
+                    </button>
+                    <button className={`fav-star ${isFavorite(item.id) ? 'active' : ''}`} onClick={() => toggleFavorite(item.id)} aria-label="Toggle favorite">
+                      <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z" fill={isFavorite(item.id) ? '#ffd60a' : 'none'} stroke={isFavorite(item.id) ? '#ffd60a' : '#636366'} strokeWidth="1.5"/></svg>
+                    </button>
+                  </div>
                 ))}
               </div>
             ) : locateText.length >= 2 ? (
@@ -249,8 +323,14 @@ function AppInner() {
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" stroke="#fff" strokeWidth="2"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>
                   {geo.loading ? 'Detecting location...' : 'Use my location'}
                 </button>
-                {geo.buildingId && !geo.error && <p className="gps-msg ok">Detected near {geo.buildingName}</p>}
+                {geo.buildingId && !geo.error && <p className="gps-msg ok">Detected near {geo.buildingName} — pick your entrance or room below</p>}
                 {geo.error && <p className="gps-msg err">{geo.error}</p>}
+
+                {/* Find My Rep */}
+                <button className="fmr-btn" onClick={() => { setFindRepMode('start'); setShowFindMyRep(true); }}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="currentColor"/></svg>
+                  Find My Rep
+                </button>
 
                 {/* Divider */}
                 <div className="divider">or select a building</div>
@@ -267,6 +347,24 @@ function AppInner() {
                     </button>
                   ))}
                 </div>
+
+                {/* Library of Congress */}
+                {BUILDINGS.filter(b => b.chamber === 'other').length > 0 && (
+                  <>
+                    <div className="divider">Library of Congress</div>
+                    <div className="building-grid">
+                      {BUILDINGS.filter(b => b.chamber === 'other').map(b => (
+                        <button
+                          key={b.id}
+                          className={`building-chip ${activeBuilding === b.id ? 'active' : ''}`}
+                          onClick={() => setPickedBuilding(b.id)}
+                        >
+                          {b.shortName}
+                        </button>
+                      ))}
+                    </div>
+                  </>
+                )}
 
                 {/* Building detail — entrances, rooms, landmarks */}
                 {activeBuilding && (() => {
@@ -412,6 +510,27 @@ function AppInner() {
             {/* Title */}
             <h2 className="section-title">Where to?</h2>
 
+            {/* Favorites */}
+            {favoriteItems.length > 0 && (
+              <div className="favorites-section">
+                <p className="bd-label">Favorites</p>
+                {favoriteItems.map(fav => (
+                  <div key={fav.id} className="fav-row">
+                    <button className="fav-row-btn" onClick={() => pickDest(fav.id)}>
+                      <span className="result-badge">{fav.number}</span>
+                      <span className="result-info">
+                        <span className="result-name">{fav.name}</span>
+                        <span className="result-sub">{fav.building}</span>
+                      </span>
+                    </button>
+                    <button className="fav-star active" onClick={() => toggleFavorite(fav.id)} aria-label="Remove favorite">
+                      <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z" fill="#ffd60a" stroke="#ffd60a" strokeWidth="1.5"/></svg>
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
+
             {/* Search */}
             <div className="search-wrap">
               <span className="search-icon">
@@ -424,26 +543,40 @@ function AppInner() {
                 placeholder="Person, room, or committee..."
                 autoFocus
               />
+              {searchText && (
+                <button className="search-clear" onClick={() => setSearchText('')} aria-label="Clear search">&times;</button>
+              )}
             </div>
 
             {/* Results */}
             {searchText.length >= 2 && searchItems.length > 0 ? (
               <div className="results-list">
                 {searchItems.map((item, i) => (
-                  <button key={`${item.id}-${i}`} className="result-row" onClick={() => pickDest(item.id)}>
-                    <span className="result-badge">{item.badge}</span>
-                    <span className="result-info">
-                      <span className="result-name">{item.title}</span>
-                      <span className="result-sub">{item.sub}</span>
-                    </span>
-                    <span className="result-arrow">&rsaquo;</span>
-                  </button>
+                  <div key={`${item.id}-${i}`} className="result-row-wrap">
+                    <button className="result-row" onClick={() => pickDest(item.id)}>
+                      <span className="result-badge">{item.badge}</span>
+                      <span className="result-info">
+                        <span className="result-name">{item.title}</span>
+                        <span className="result-sub">{item.sub}</span>
+                      </span>
+                      <span className="result-arrow">&rsaquo;</span>
+                    </button>
+                    <button className={`fav-star ${isFavorite(item.id) ? 'active' : ''}`} onClick={() => toggleFavorite(item.id)} aria-label="Toggle favorite">
+                      <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z" fill={isFavorite(item.id) ? '#ffd60a' : 'none'} stroke={isFavorite(item.id) ? '#ffd60a' : '#636366'} strokeWidth="1.5"/></svg>
+                    </button>
+                  </div>
                 ))}
               </div>
             ) : searchText.length >= 2 ? (
               <p className="no-results">No rooms or offices match your search</p>
             ) : (
               <>
+                {/* Find My Rep */}
+                <button className="fmr-btn" onClick={() => { setFindRepMode('dest'); setShowFindMyRep(true); }}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="currentColor"/></svg>
+                  Find My Rep
+                </button>
+
                 {/* Quick tags */}
                 <div className="quick-tags">
                   {['Cafeteria', 'Restroom', 'Elevator', 'Hearing Room', 'Rotunda'].map(q => (
@@ -465,6 +598,24 @@ function AppInner() {
                     </button>
                   ))}
                 </div>
+
+                {/* Library of Congress */}
+                {BUILDINGS.filter(b => b.chamber === 'other').length > 0 && (
+                  <>
+                    <div className="divider">Library of Congress</div>
+                    <div className="building-grid">
+                      {BUILDINGS.filter(b => b.chamber === 'other').map(b => (
+                        <button
+                          key={b.id}
+                          className={`building-chip ${destBuilding === b.id ? 'active' : ''}`}
+                          onClick={() => setDestBuilding(destBuilding === b.id ? null : b.id)}
+                        >
+                          {b.shortName}
+                        </button>
+                      ))}
+                    </div>
+                  </>
+                )}
 
                 {/* Building detail for destination */}
                 {destBuilding && (() => {
@@ -584,6 +735,7 @@ function AppInner() {
                 {feet > 0 && ` \u00b7 ${feet < 1000 ? `${feet} ft` : `${(feet / 5280).toFixed(1)} mi`}`}
               </div>
             </div>
+            {accessible && <span className="a11y-badge">&#9855;</span>}
           </div>
 
           {/* Map */}
@@ -618,9 +770,9 @@ function AppInner() {
                       padding: '8px 16px',
                       fontSize: 12,
                       fontWeight: 700,
-                      color: '#007aff',
-                      background: '#f0f4ff',
-                      borderBottom: '1px solid #e5e5ea',
+                      color: '#0a84ff',
+                      background: '#2c2c2e',
+                      borderBottom: '1px solid #48484a',
                       textTransform: 'uppercase',
                       letterSpacing: 0.5,
                     }}>
@@ -655,19 +807,22 @@ function AppInner() {
         </div>
       )}
 
-      {/* ═══ MAP BACKGROUND (visible behind nav screen) ═══ */}
-      {screen !== 'navigate' && (
-        <div className="map-area" style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 1 }}>
-          <InteractiveMap
-            route={route}
-            graph={graph}
-            routeBuildings={route?.buildings}
-            startBuildingId={startRoom?.buildingId}
-            endBuildingId={endRoom?.buildingId}
-            onRoomSelect={onRoomSelectRef.current}
-          />
-        </div>
+      {/* ═══ FIND MY REP OVERLAY ═══ */}
+      {showFindMyRep && (
+        <FindMyRep
+          onSelect={(roomId: string) => {
+            setShowFindMyRep(false);
+            if (findRepMode === 'start') {
+              pickStart(roomId);
+            } else {
+              pickDest(roomId);
+            }
+          }}
+          onClose={() => setShowFindMyRep(false)}
+        />
       )}
+
+      {/* Map is only rendered on the navigate screen to avoid duplicate Leaflet instances */}
     </div>
   );
 }

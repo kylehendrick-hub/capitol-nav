@@ -78,7 +78,7 @@ button:active{transform:scale(0.97)}
   color:#636366;pointer-events:none;
 }
 .search-input{
-  width:100%;padding:14px 16px 14px 42px;
+  width:100%;padding:14px 44px 14px 42px;
   border:1px solid #48484a;border-radius:12px;
   font-size:17px;background:#2c2c2e;color:#fff;
   outline:none;transition:border-color 0.2s,box-shadow 0.2s;
@@ -88,6 +88,16 @@ button:active{transform:scale(0.97)}
   box-shadow:0 0 0 3px rgba(10,132,255,0.25);
 }
 .search-input::placeholder{color:#636366}
+
+/* Search clear button */
+.search-clear{
+  position:absolute;right:12px;top:50%;transform:translateY(-50%);
+  width:28px;height:28px;border:none;background:#48484a;border-radius:50%;
+  color:#fff;font-size:16px;line-height:1;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;padding:0;
+}
+.search-clear:hover{background:#636366}
 
 /* ===== GPS BUTTON ===== */
 .gps-btn{
@@ -382,3 +392,120 @@ button:active{transform:scale(0.97)}
 .empty-state{padding:32px 20px;text-align:center;color:#636366;font-size:13px}
 .gps-inline-btn{display:block;width:calc(100% - 32px);margin:8px 16px;padding:12px;background:rgba(48,209,88,0.1);border:1.5px solid rgba(48,209,88,0.3);border-radius:10px;font-size:14px;font-weight:600;color:#30d158;cursor:pointer;text-align:center}
 .location-gps-btn{width:32px;height:32px;border:none;background:#1a2a3a;border-radius:50%;font-size:14px;cursor:pointer;flex-shrink:0;color:#0a84ff}
+
+/* ===== FIND MY REP OVERLAY ===== */
+.fmr-overlay{
+  position:fixed;top:0;left:0;right:0;bottom:0;
+  background:#000;z-index:50;
+  overflow-y:auto;-webkit-overflow-scrolling:touch;
+  animation:fadeIn 0.25s ease;
+}
+.fmr-close{
+  position:absolute;top:16px;left:16px;z-index:51;
+  width:40px;height:40px;border:none;background:#2c2c2e;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:#aeaeb2;font-size:16px;
+  transition:background 0.2s,color 0.2s;
+}
+.fmr-close:hover{background:#3a3a3c;color:#fff}
+.fmr-content{padding:72px 20px 40px}
+.fmr-title{
+  font-size:24px;font-weight:700;color:#fff;letter-spacing:-0.3px;
+  margin:0 0 20px;
+}
+.fmr-state-grid{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:6px;
+  margin-bottom:24px;
+}
+.fmr-state-chip{
+  padding:10px 4px;border:1.5px solid #48484a;border-radius:8px;
+  background:#2c2c2e;font-size:13px;font-weight:600;color:#fff;
+  text-align:center;min-height:40px;
+  display:flex;align-items:center;justify-content:center;
+  transition:background 0.2s,border-color 0.2s;
+}
+.fmr-state-chip:hover{border-color:#636366;background:#3a3a3c}
+.fmr-state-chip.active{
+  border-color:#0a84ff;background:#0a84ff;color:#fff;
+}
+.fmr-results{margin-top:8px}
+
+/* Find My Rep trigger button */
+.fmr-btn{
+  width:100%;padding:14px;margin:8px 0;
+  background:#2c2c2e;border:1.5px solid #48484a;border-radius:14px;
+  font-size:15px;font-weight:600;color:#fff;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:background 0.2s,border-color 0.2s;
+}
+.fmr-btn:hover{background:#3a3a3c;border-color:#636366}
+
+/* ===== FAVORITES ===== */
+.favorites-section{margin-bottom:16px}
+.fav-row{
+  display:flex;align-items:center;gap:0;
+  margin-bottom:4px;
+}
+.fav-row-btn{
+  display:flex;align-items:center;gap:14px;
+  flex:1;min-width:0;padding:12px 14px;
+  border:1px solid #2c2c2e;border-radius:10px;background:#1c1c1e;
+  text-align:left;min-height:44px;cursor:pointer;
+  transition:background 0.2s,border-color 0.2s;
+}
+.fav-row-btn:hover{background:#2c2c2e;border-color:#3a3a3c}
+.fav-row-btn:active{background:rgba(10,132,255,0.12);border-color:#0a84ff}
+
+.fav-star{
+  width:44px;height:44px;border:none;background:none;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;cursor:pointer;padding:0;
+}
+.fav-star svg{transition:transform 0.15s}
+.fav-star:active svg{transform:scale(1.2)}
+.fav-star.active svg path{fill:#ffd60a;stroke:#ffd60a}
+
+.result-row-wrap{
+  display:flex;align-items:center;gap:0;
+  border-bottom:1px solid #2c2c2e;
+}
+.result-row-wrap .result-row{
+  flex:1;min-width:0;border-bottom:none;
+}
+
+/* ===== ACCESSIBILITY TOGGLE ===== */
+.a11y-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 0;margin-bottom:8px;
+}
+.a11y-label{
+  font-size:14px;font-weight:500;color:#aeaeb2;
+}
+.toggle-track{
+  position:relative;width:48px;height:28px;
+  border-radius:14px;border:none;cursor:pointer;
+  transition:background 0.2s;flex-shrink:0;
+  padding:0;
+}
+.toggle-thumb{
+  position:absolute;top:2px;left:2px;
+  width:24px;height:24px;border-radius:50%;
+  background:#fff;
+  transition:transform 0.2s;
+  box-shadow:0 1px 3px rgba(0,0,0,0.3);
+  pointer-events:none;
+}
+.a11y-badge{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:28px;height:28px;border-radius:6px;
+  background:rgba(10,132,255,0.2);color:#0a84ff;
+  font-size:16px;flex-shrink:0;
+}
+
+/* Search clear button */
+.search-clear{
+  position:absolute;right:12px;top:50%;transform:translateY(-50%);
+  width:28px;height:28px;border:none;background:#48484a;border-radius:50%;
+  color:#fff;font-size:16px;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+}

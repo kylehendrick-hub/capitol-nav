@@ -1,4 +1,4 @@
-import { GraphNode, GraphEdge } from '../types';
+import { GraphNode, GraphEdge, EdgeType } from '../types';
 
 export class Graph {
   private adjacency = new Map<string, GraphEdge[]>();
@@ -16,10 +16,18 @@ export class Graph {
     if (fromEdges) fromEdges.push(edge);
 
     // Add reverse edge (all corridors are bidirectional)
+    // Flip directional edge types for the reverse direction
+    let reverseType = edge.type;
+    if (edge.type === EdgeType.STAIRS_UP) reverseType = EdgeType.STAIRS_DOWN;
+    else if (edge.type === EdgeType.STAIRS_DOWN) reverseType = EdgeType.STAIRS_UP;
+    else if (edge.type === EdgeType.ESCALATOR_UP) reverseType = EdgeType.ESCALATOR_DOWN;
+    else if (edge.type === EdgeType.ESCALATOR_DOWN) reverseType = EdgeType.ESCALATOR_UP;
+
     const reverseEdge: GraphEdge = {
       ...edge,
       from: edge.to,
       to: edge.from,
+      type: reverseType,
     };
     const toEdges = this.adjacency.get(edge.to);
     if (toEdges) toEdges.push(reverseEdge);
