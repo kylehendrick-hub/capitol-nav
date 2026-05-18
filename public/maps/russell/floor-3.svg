@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <defs>
+    <style>
+      .wall { fill: none; stroke: #2d3748; stroke-width: 3; }
+      .room { fill: #edf2f7; stroke: #a0aec0; stroke-width: 1; }
+      .hallway { fill: #f7fafc; stroke: #cbd5e0; stroke-width: 1; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #4a5568; text-anchor: middle; }
+      .title { font-family: Arial, sans-serif; font-size: 18px; fill: #1a202c; font-weight: bold; text-anchor: middle; }
+      .amenity { font-family: Arial, sans-serif; font-size: 11px; fill: #3182ce; text-anchor: middle; font-weight: bold; }
+      .landmark { fill: #ebf8ff; stroke: #3182ce; stroke-width: 2; }
+    </style>
+  </defs>
+  <text class="title" x="800" y="30">Russell Senate Office Building - 3rd Floor</text>
+  <rect class="wall" x="50" y="50" width="1500" height="900" rx="5"/>
+  <rect class="wall" x="200" y="250" width="450" height="400" rx="3"/>
+  <rect class="wall" x="950" y="250" width="450" height="400" rx="3"/>
+  <rect class="hallway" x="60" y="150" width="1480" height="50"/>
+  <rect class="hallway" x="60" y="700" width="1480" height="50"/>
+  <rect class="hallway" x="100" y="150" width="50" height="600"/>
+  <rect class="hallway" x="1450" y="150" width="50" height="600"/>
+  <rect class="hallway" x="775" y="150" width="50" height="600"/>
+  <rect class="room" x="160" y="60" width="140" height="80"/>
+  <text class="label" x="230" y="105">SR-300</text>
+  <rect class="room" x="320" y="60" width="140" height="80"/>
+  <text class="label" x="390" y="105">SR-301</text>
+  <rect class="room" x="480" y="60" width="140" height="80"/>
+  <text class="label" x="550" y="105">SR-302</text>
+  <rect class="room" x="900" y="60" width="140" height="80"/>
+  <text class="label" x="970" y="105">SR-303</text>
+  <rect class="room" x="1060" y="60" width="140" height="80"/>
+  <text class="label" x="1130" y="105">SR-304</text>
+  <rect class="room" x="1220" y="60" width="140" height="80"/>
+  <text class="label" x="1290" y="105">SR-305</text>
+  <rect class="room" x="160" y="760" width="140" height="80"/>
+  <text class="label" x="230" y="805">SR-310</text>
+  <rect class="room" x="320" y="760" width="140" height="80"/>
+  <text class="label" x="390" y="805">SR-311</text>
+  <rect class="room" x="900" y="760" width="140" height="80"/>
+  <text class="label" x="970" y="805">SR-312</text>
+  <rect class="room" x="1060" y="760" width="140" height="80"/>
+  <text class="label" x="1130" y="805">SR-313</text>
+  <rect class="landmark" x="660" y="155" width="30" height="30"/>
+  <text class="amenity" x="675" y="175">E</text>
+  <rect class="landmark" x="900" y="155" width="30" height="30"/>
+  <text class="amenity" x="915" y="175">E</text>
+  <rect class="landmark" x="660" y="705" width="30" height="30"/>
+  <text class="amenity" x="675" y="725">S</text>
+  <rect class="landmark" x="900" y="705" width="30" height="30"/>
+  <text class="amenity" x="915" y="725">S</text>
+  <rect class="landmark" x="380" y="705" width="30" height="30"/>
+  <text class="amenity" x="395" y="725">R</text>
+</svg>

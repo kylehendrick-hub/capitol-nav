@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200">
+  <defs>
+    <style>
+      .wall { fill: none; stroke: #2d3748; stroke-width: 3; }
+      .room { fill: #edf2f7; stroke: #a0aec0; stroke-width: 1; }
+      .hallway { fill: #f7fafc; stroke: #cbd5e0; stroke-width: 1; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #4a5568; text-anchor: middle; }
+      .title { font-family: Arial, sans-serif; font-size: 18px; fill: #1a202c; font-weight: bold; text-anchor: middle; }
+      .wing-label { font-family: Arial, sans-serif; font-size: 14px; fill: #718096; text-anchor: middle; font-style: italic; }
+      .amenity { font-family: Arial, sans-serif; font-size: 11px; fill: #3182ce; text-anchor: middle; font-weight: bold; }
+      .landmark { fill: #ebf8ff; stroke: #3182ce; stroke-width: 2; }
+    </style>
+  </defs>
+  <text class="title" x="800" y="30">Library of Congress - Jefferson Building - 1st Floor</text>
+  <rect class="wall" x="50" y="50" width="1500" height="1100" rx="5"/>
+  <polygon class="landmark" points="800,350 920,400 950,520 920,640 800,690 680,640 650,520 680,400"/>
+  <text class="label" x="800" y="525">Main Reading Room</text>
+  <rect class="hallway" x="60" y="200" width="1480" height="50"/>
+  <rect class="hallway" x="60" y="790" width="1480" height="50"/>
+  <rect class="hallway" x="200" y="200" width="50" height="640"/>
+  <rect class="hallway" x="1350" y="200" width="50" height="640"/>
+  <!-- Great Hall -->
+  <rect class="room" x="300" y="860" width="400" height="200"/>
+  <text class="label" x="500" y="965">Great Hall</text>
+  <!-- Rooms -->
+  <rect class="room" x="100" y="65" width="170" height="120"/>
+  <text class="label" x="185" y="130">LJ-101</text>
+  <rect class="room" x="300" y="65" width="170" height="120"/>
+  <text class="label" x="385" y="130">LJ-102</text>
+  <rect class="room" x="550" y="65" width="170" height="120"/>
+  <text class="label" x="635" y="130">LJ-103</text>
+  <rect class="room" x="880" y="65" width="170" height="120"/>
+  <text class="label" x="965" y="130">LJ-104</text>
+  <rect class="room" x="1100" y="65" width="170" height="120"/>
+  <text class="label" x="1185" y="130">LJ-105</text>
+  <rect class="room" x="1330" y="65" width="170" height="120"/>
+  <text class="label" x="1415" y="130">LJ-106</text>
+  <rect class="room" x="880" y="860" width="170" height="120"/>
+  <text class="label" x="965" y="925">LJ-110</text>
+  <rect class="room" x="1100" y="860" width="170" height="120"/>
+  <text class="label" x="1185" y="925">LJ-111</text>
+  <rect class="room" x="1330" y="860" width="170" height="120"/>
+  <text class="label" x="1415" y="925">LJ-112</text>
+  <text class="wing-label" x="800" y="190">North</text>
+  <text class="wing-label" x="800" y="850">South</text>
+  <rect class="landmark" x="500" y="205" width="30" height="30"/>
+  <text class="amenity" x="515" y="225">E</text>
+  <rect class="landmark" x="1070" y="205" width="30" height="30"/>
+  <text class="amenity" x="1085" y="225">E</text>
+  <rect class="landmark" x="600" y="205" width="30" height="30"/>
+  <text class="amenity" x="615" y="225">S</text>
+  <rect class="landmark" x="970" y="205" width="30" height="30"/>
+  <text class="amenity" x="985" y="225">S</text>
+  <rect class="landmark" x="750" y="795" width="30" height="30"/>
+  <text class="amenity" x="765" y="815">R</text>
+  <rect class="landmark" x="850" y="795" width="30" height="30"/>
+  <text class="amenity" x="865" y="815">R</text>
+</svg>

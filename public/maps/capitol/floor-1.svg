@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1400">
+  <defs>
+    <style>
+      .wall { fill: none; stroke: #2d3748; stroke-width: 3; }
+      .room { fill: #edf2f7; stroke: #a0aec0; stroke-width: 1; }
+      .hallway { fill: #f7fafc; stroke: #cbd5e0; stroke-width: 1; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #4a5568; text-anchor: middle; }
+      .title { font-family: Arial, sans-serif; font-size: 18px; fill: #1a202c; font-weight: bold; text-anchor: middle; }
+      .wing-label { font-family: Arial, sans-serif; font-size: 14px; fill: #718096; text-anchor: middle; font-style: italic; }
+      .amenity { font-family: Arial, sans-serif; font-size: 11px; fill: #3182ce; text-anchor: middle; font-weight: bold; }
+      .landmark { fill: #ebf8ff; stroke: #3182ce; stroke-width: 2; }
+    </style>
+  </defs>
+  <text class="title" x="1000" y="30">United States Capitol - 1st Floor</text>
+  <rect class="wall" x="600" y="50" width="800" height="1300" rx="5"/>
+  <rect class="wall" x="50" y="400" width="550" height="600" rx="5"/>
+  <rect class="wall" x="1400" y="400" width="550" height="600" rx="5"/>
+  <circle class="landmark" cx="1000" cy="700" r="120"/>
+  <text class="label" x="1000" y="705">Rotunda</text>
+  <rect class="hallway" x="60" y="670" width="1880" height="60"/>
+  <rect class="hallway" x="970" y="60" width="60" height="1280"/>
+  <!-- Rooms - Senate side (north) -->
+  <rect class="room" x="650" y="70" width="150" height="100"/>
+  <text class="label" x="725" y="125">S-100</text>
+  <rect class="room" x="650" y="180" width="150" height="100"/>
+  <text class="label" x="725" y="235">S-101</text>
+  <rect class="room" x="1100" y="70" width="150" height="100"/>
+  <text class="label" x="1175" y="125">S-102</text>
+  <rect class="room" x="1100" y="180" width="150" height="100"/>
+  <text class="label" x="1175" y="235">S-103</text>
+  <rect class="room" x="650" y="350" width="150" height="100"/>
+  <text class="label" x="725" y="405">S-104</text>
+  <rect class="room" x="1100" y="350" width="150" height="100"/>
+  <text class="label" x="1175" y="405">S-105</text>
+  <!-- Rooms - House side (south) -->
+  <rect class="room" x="650" y="950" width="150" height="100"/>
+  <text class="label" x="725" y="1005">H-100</text>
+  <rect class="room" x="1100" y="950" width="150" height="100"/>
+  <text class="label" x="1175" y="1005">H-101</text>
+  <rect class="room" x="650" y="1100" width="150" height="100"/>
+  <text class="label" x="725" y="1155">H-102</text>
+  <rect class="room" x="1100" y="1100" width="150" height="100"/>
+  <text class="label" x="1175" y="1155">H-103</text>
+  <!-- West wing -->
+  <rect class="room" x="70" y="420" width="200" height="120"/>
+  <text class="label" x="170" y="485">House Chamber</text>
+  <rect class="room" x="70" y="780" width="150" height="80"/>
+  <text class="label" x="145" y="825">H-110</text>
+  <!-- East wing -->
+  <rect class="room" x="1430" y="420" width="200" height="120"/>
+  <text class="label" x="1530" y="485">Senate Chamber</text>
+  <rect class="room" x="1430" y="780" width="150" height="80"/>
+  <text class="label" x="1505" y="825">S-110</text>
+  <text class="wing-label" x="1000" y="200">North (Senate Side)</text>
+  <text class="wing-label" x="1000" y="1250">South (House Side)</text>
+  <text class="wing-label" x="325" y="700">House Wing</text>
+  <text class="wing-label" x="1675" y="700">Senate Wing</text>
+  <rect class="landmark" x="870" y="675" width="30" height="30"/>
+  <text class="amenity" x="885" y="695">E</text>
+  <rect class="landmark" x="1100" y="675" width="30" height="30"/>
+  <text class="amenity" x="1115" y="695">E</text>
+  <rect class="landmark" x="800" y="675" width="30" height="30"/>
+  <text class="amenity" x="815" y="695">S</text>
+  <rect class="landmark" x="1170" y="675" width="30" height="30"/>
+  <text class="amenity" x="1185" y="695">S</text>
+  <rect class="landmark" x="930" y="500" width="30" height="30"/>
+  <text class="amenity" x="945" y="520">R</text>
+  <rect class="landmark" x="930" y="850" width="30" height="30"/>
+  <text class="amenity" x="945" y="870">R</text>
+  <!-- Entrances -->
+  <rect class="landmark" x="950" y="55" width="100" height="30"/>
+  <text class="amenity" x="1000" y="75">ENTRANCE</text>
+  <rect class="landmark" x="950" y="1315" width="100" height="30"/>
+  <text class="amenity" x="1000" y="1335">ENTRANCE</text>
+</svg>

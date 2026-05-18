@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1000">
+  <defs>
+    <style>
+      .wall { fill: none; stroke: #2d3748; stroke-width: 3; }
+      .room { fill: #edf2f7; stroke: #a0aec0; stroke-width: 1; }
+      .hallway { fill: #f7fafc; stroke: #cbd5e0; stroke-width: 1; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #4a5568; text-anchor: middle; }
+      .title { font-family: Arial, sans-serif; font-size: 18px; fill: #1a202c; font-weight: bold; text-anchor: middle; }
+      .wing-label { font-family: Arial, sans-serif; font-size: 14px; fill: #718096; text-anchor: middle; font-style: italic; }
+      .amenity { font-family: Arial, sans-serif; font-size: 11px; fill: #3182ce; text-anchor: middle; font-weight: bold; }
+      .landmark { fill: #ebf8ff; stroke: #3182ce; stroke-width: 2; }
+    </style>
+  </defs>
+  <text class="title" x="900" y="30">Capitol Visitor Center - Lower Level</text>
+  <!-- Large rectangle (underground) -->
+  <rect class="wall" x="50" y="50" width="1700" height="900" rx="5"/>
+  <!-- Main E-W corridor -->
+  <rect class="hallway" x="60" y="460" width="1680" height="80"/>
+  <!-- N-S corridors -->
+  <rect class="hallway" x="450" y="60" width="60" height="880"/>
+  <rect class="hallway" x="900" y="60" width="60" height="880"/>
+  <rect class="hallway" x="1300" y="60" width="60" height="880"/>
+  <!-- Exhibition Hall -->
+  <rect class="room" x="80" y="80" width="350" height="360"/>
+  <text class="label" x="255" y="265">Exhibition Hall</text>
+  <!-- Orientation theaters -->
+  <rect class="room" x="530" y="80" width="200" height="180"/>
+  <text class="label" x="630" y="175">Theater 1</text>
+  <rect class="room" x="530" y="280" width="200" height="160"/>
+  <text class="label" x="630" y="365">Theater 2</text>
+  <!-- Food court -->
+  <rect class="room" x="980" y="80" width="300" height="350"/>
+  <text class="label" x="1130" y="260">Food Court</text>
+  <!-- Gift shops -->
+  <rect class="room" x="1380" y="80" width="300" height="170"/>
+  <text class="label" x="1530" y="170">Gift Shop</text>
+  <rect class="room" x="1380" y="270" width="300" height="170"/>
+  <text class="label" x="1530" y="360">Gift Shop 2</text>
+  <!-- South rooms -->
+  <rect class="room" x="80" y="560" width="200" height="150"/>
+  <text class="label" x="180" y="640">CVC-L1</text>
+  <rect class="room" x="80" y="730" width="200" height="150"/>
+  <text class="label" x="180" y="810">CVC-L2</text>
+  <rect class="room" x="530" y="560" width="200" height="150"/>
+  <text class="label" x="630" y="640">CVC-L3</text>
+  <rect class="room" x="530" y="730" width="200" height="150"/>
+  <text class="label" x="630" y="810">CVC-L4</text>
+  <rect class="room" x="980" y="560" width="200" height="150"/>
+  <text class="label" x="1080" y="640">CVC-L5</text>
+  <rect class="room" x="1380" y="560" width="200" height="150"/>
+  <text class="label" x="1480" y="640">CVC-L6</text>
+  <text class="wing-label" x="450" y="455">West Section</text>
+  <text class="wing-label" x="1350" y="455">East Section</text>
+  <!-- Elevators -->
+  <rect class="landmark" x="455" y="465" width="30" height="30"/>
+  <text class="amenity" x="470" y="485">E</text>
+  <rect class="landmark" x="905" y="465" width="30" height="30"/>
+  <text class="amenity" x="920" y="485">E</text>
+  <rect class="landmark" x="1305" y="465" width="30" height="30"/>
+  <text class="amenity" x="1320" y="485">E</text>
+  <!-- Stairs -->
+  <rect class="landmark" x="770" y="465" width="30" height="30"/>
+  <text class="amenity" x="785" y="485">S</text>
+  <rect class="landmark" x="1150" y="465" width="30" height="30"/>
+  <text class="amenity" x="1165" y="485">S</text>
+  <!-- Restrooms -->
+  <rect class="landmark" x="750" y="80" width="30" height="30"/>
+  <text class="amenity" x="765" y="100">R</text>
+  <rect class="landmark" x="750" y="560" width="30" height="30"/>
+  <text class="amenity" x="765" y="580">R</text>
+  <!-- Tunnel to Capitol -->
+  <rect class="landmark" x="850" y="55" width="160" height="30"/>
+  <text class="amenity" x="930" y="75">TUNNEL to Capitol</text>
+</svg>

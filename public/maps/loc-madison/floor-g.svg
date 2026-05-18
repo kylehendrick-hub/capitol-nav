@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1000">
+  <defs>
+    <style>
+      .wall { fill: none; stroke: #2d3748; stroke-width: 3; }
+      .room { fill: #edf2f7; stroke: #a0aec0; stroke-width: 1; }
+      .hallway { fill: #f7fafc; stroke: #cbd5e0; stroke-width: 1; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #4a5568; text-anchor: middle; }
+      .title { font-family: Arial, sans-serif; font-size: 18px; fill: #1a202c; font-weight: bold; text-anchor: middle; }
+      .wing-label { font-family: Arial, sans-serif; font-size: 14px; fill: #718096; text-anchor: middle; font-style: italic; }
+      .amenity { font-family: Arial, sans-serif; font-size: 11px; fill: #3182ce; text-anchor: middle; font-weight: bold; }
+      .landmark { fill: #ebf8ff; stroke: #3182ce; stroke-width: 2; }
+    </style>
+  </defs>
+  <text class="title" x="900" y="30">Library of Congress - Madison Building - Ground Floor</text>
+  <!-- Large rectangle -->
+  <rect class="wall" x="50" y="50" width="1700" height="900" rx="5"/>
+  <!-- Main E-W corridor -->
+  <rect class="hallway" x="60" y="460" width="1680" height="60"/>
+  <!-- N-S corridors -->
+  <rect class="hallway" x="300" y="60" width="50" height="880"/>
+  <rect class="hallway" x="700" y="60" width="50" height="880"/>
+  <rect class="hallway" x="1050" y="60" width="50" height="880"/>
+  <rect class="hallway" x="1450" y="60" width="50" height="880"/>
+  <!-- North rooms -->
+  <rect class="room" x="70" y="70" width="220" height="180"/>
+  <text class="label" x="180" y="165">LM-G01</text>
+  <rect class="room" x="370" y="70" width="150" height="180"/>
+  <text class="label" x="445" y="165">LM-G02</text>
+  <rect class="room" x="540" y="70" width="150" height="180"/>
+  <text class="label" x="615" y="165">LM-G03</text>
+  <rect class="room" x="770" y="70" width="130" height="180"/>
+  <text class="label" x="835" y="165">LM-G04</text>
+  <rect class="room" x="920" y="70" width="120" height="180"/>
+  <text class="label" x="980" y="165">LM-G05</text>
+  <rect class="room" x="1120" y="70" width="150" height="180"/>
+  <text class="label" x="1195" y="165">LM-G06</text>
+  <rect class="room" x="1290" y="70" width="150" height="180"/>
+  <text class="label" x="1365" y="165">LM-G07</text>
+  <rect class="room" x="1520" y="70" width="210" height="180"/>
+  <text class="label" x="1625" y="165">LM-G08</text>
+  <!-- Middle rooms -->
+  <rect class="room" x="70" y="280" width="220" height="160"/>
+  <text class="label" x="180" y="365">LM-G10</text>
+  <rect class="room" x="370" y="280" width="150" height="160"/>
+  <text class="label" x="445" y="365">LM-G11</text>
+  <rect class="room" x="1120" y="280" width="150" height="160"/>
+  <text class="label" x="1195" y="365">LM-G12</text>
+  <rect class="room" x="1520" y="280" width="210" height="160"/>
+  <text class="label" x="1625" y="365">LM-G13</text>
+  <!-- South rooms -->
+  <rect class="room" x="70" y="540" width="220" height="180"/>
+  <text class="label" x="180" y="635">LM-G20</text>
+  <rect class="room" x="370" y="540" width="150" height="180"/>
+  <text class="label" x="445" y="635">LM-G21</text>
+  <rect class="room" x="770" y="540" width="260" height="180"/>
+  <text class="label" x="900" y="635">LM-G22</text>
+  <rect class="room" x="1120" y="540" width="150" height="180"/>
+  <text class="label" x="1195" y="635">LM-G23</text>
+  <rect class="room" x="1520" y="540" width="210" height="180"/>
+  <text class="label" x="1625" y="635">LM-G24</text>
+  <rect class="room" x="70" y="740" width="220" height="180"/>
+  <text class="label" x="180" y="835">LM-G30</text>
+  <rect class="room" x="370" y="740" width="150" height="180"/>
+  <text class="label" x="445" y="835">LM-G31</text>
+  <text class="wing-label" x="450" y="455">West Section</text>
+  <text class="wing-label" x="1350" y="455">East Section</text>
+  <!-- Elevators -->
+  <rect class="landmark" x="305" y="400" width="30" height="30"/>
+  <text class="amenity" x="320" y="420">E</text>
+  <rect class="landmark" x="705" y="400" width="30" height="30"/>
+  <text class="amenity" x="720" y="420">E</text>
+  <rect class="landmark" x="1055" y="400" width="30" height="30"/>
+  <text class="amenity" x="1070" y="420">E</text>
+  <rect class="landmark" x="1455" y="400" width="30" height="30"/>
+  <text class="amenity" x="1470" y="420">E</text>
+  <!-- Stairs -->
+  <rect class="landmark" x="305" y="130" width="30" height="30"/>
+  <text class="amenity" x="320" y="150">S</text>
+  <rect class="landmark" x="1455" y="130" width="30" height="30"/>
+  <text class="amenity" x="1470" y="150">S</text>
+  <!-- Restrooms -->
+  <rect class="landmark" x="850" y="465" width="30" height="30"/>
+  <text class="amenity" x="865" y="485">R</text>
+  <rect class="landmark" x="950" y="465" width="30" height="30"/>
+  <text class="amenity" x="965" y="485">R</text>
+  <!-- Entrance -->
+  <rect class="landmark" x="820" y="915" width="160" height="30"/>
+  <text class="amenity" x="900" y="937">ENTRANCE</text>
+</svg>

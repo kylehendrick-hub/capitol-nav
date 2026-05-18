@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200">
+  <defs>
+    <style>
+      .wall { fill: none; stroke: #2d3748; stroke-width: 3; }
+      .room { fill: #edf2f7; stroke: #a0aec0; stroke-width: 1; }
+      .hallway { fill: #f7fafc; stroke: #cbd5e0; stroke-width: 1; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #4a5568; text-anchor: middle; }
+      .title { font-family: Arial, sans-serif; font-size: 18px; fill: #1a202c; font-weight: bold; text-anchor: middle; }
+      .amenity { font-family: Arial, sans-serif; font-size: 11px; fill: #3182ce; text-anchor: middle; font-weight: bold; }
+      .landmark { fill: #ebf8ff; stroke: #3182ce; stroke-width: 2; }
+    </style>
+  </defs>
+  <text class="title" x="800" y="30">Hart Senate Office Building - 5th Floor</text>
+  <rect class="wall" x="50" y="50" width="1500" height="1100" rx="5"/>
+  <rect class="wall" x="350" y="300" width="900" height="600" rx="3"/>
+  <rect class="hallway" x="60" y="180" width="1480" height="50"/>
+  <rect class="hallway" x="60" y="970" width="1480" height="50"/>
+  <rect class="hallway" x="180" y="180" width="50" height="840"/>
+  <rect class="hallway" x="1370" y="180" width="50" height="840"/>
+  <rect class="room" x="100" y="60" width="140" height="110"/>
+  <text class="label" x="170" y="120">SH-500</text>
+  <rect class="room" x="280" y="60" width="140" height="110"/>
+  <text class="label" x="350" y="120">SH-501</text>
+  <rect class="room" x="500" y="60" width="140" height="110"/>
+  <text class="label" x="570" y="120">SH-502</text>
+  <rect class="room" x="700" y="60" width="140" height="110"/>
+  <text class="label" x="770" y="120">SH-503</text>
+  <rect class="room" x="900" y="60" width="140" height="110"/>
+  <text class="label" x="970" y="120">SH-504</text>
+  <rect class="room" x="1100" y="60" width="140" height="110"/>
+  <text class="label" x="1170" y="120">SH-505</text>
+  <rect class="landmark" x="400" y="185" width="30" height="30"/>
+  <text class="amenity" x="415" y="205">E</text>
+  <rect class="landmark" x="1170" y="185" width="30" height="30"/>
+  <text class="amenity" x="1185" y="205">E</text>
+  <rect class="landmark" x="600" y="185" width="30" height="30"/>
+  <text class="amenity" x="615" y="205">S</text>
+  <rect class="landmark" x="970" y="185" width="30" height="30"/>
+  <text class="amenity" x="985" y="205">S</text>
+  <rect class="landmark" x="780" y="185" width="30" height="30"/>
+  <text class="amenity" x="795" y="205">R</text>
+</svg>

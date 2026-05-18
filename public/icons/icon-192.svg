@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+  <rect width="192" height="192" rx="32" fill="#1a365d"/>
+  <path d="M56,140 L56,90 L76,90 L76,60 L96,40 L116,60 L116,90 L136,90 L136,140 Z" fill="white"/>
+  <text x="96" y="172" text-anchor="middle" font-size="24" fill="white" font-family="sans-serif" font-weight="bold">CAPNAV</text>
+</svg>

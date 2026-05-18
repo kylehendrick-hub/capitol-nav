@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200">
+  <defs>
+    <style>
+      .wall { fill: none; stroke: #2d3748; stroke-width: 3; }
+      .room { fill: #edf2f7; stroke: #a0aec0; stroke-width: 1; }
+      .hallway { fill: #f7fafc; stroke: #cbd5e0; stroke-width: 1; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #4a5568; text-anchor: middle; }
+      .title { font-family: Arial, sans-serif; font-size: 18px; fill: #1a202c; font-weight: bold; text-anchor: middle; }
+      .wing-label { font-family: Arial, sans-serif; font-size: 14px; fill: #718096; text-anchor: middle; font-style: italic; }
+      .amenity { font-family: Arial, sans-serif; font-size: 11px; fill: #3182ce; text-anchor: middle; font-weight: bold; }
+      .landmark { fill: #ebf8ff; stroke: #3182ce; stroke-width: 2; }
+    </style>
+  </defs>
+  <text class="title" x="800" y="30">Hart Senate Office Building - Basement</text>
+  <rect class="wall" x="50" y="50" width="1500" height="1100" rx="5"/>
+  <!-- Large interior atrium -->
+  <rect class="wall" x="350" y="300" width="900" height="600" rx="3"/>
+  <text class="label" x="800" y="610">Atrium (Calder Sculpture)</text>
+  <!-- North corridor -->
+  <rect class="hallway" x="60" y="180" width="1480" height="50"/>
+  <!-- South corridor -->
+  <rect class="hallway" x="60" y="970" width="1480" height="50"/>
+  <!-- West corridor -->
+  <rect class="hallway" x="180" y="180" width="50" height="840"/>
+  <!-- East corridor -->
+  <rect class="hallway" x="1370" y="180" width="50" height="840"/>
+  <!-- Central cross corridor -->
+  <rect class="hallway" x="230" y="560" width="1140" height="50"/>
+  <!-- Rooms - North side -->
+  <rect class="room" x="100" y="60" width="140" height="110"/>
+  <text class="label" x="170" y="120">SB-1</text>
+  <rect class="room" x="280" y="60" width="140" height="110"/>
+  <text class="label" x="350" y="120">SB-2</text>
+  <rect class="room" x="500" y="60" width="140" height="110"/>
+  <text class="label" x="570" y="120">SB-3</text>
+  <rect class="room" x="700" y="60" width="140" height="110"/>
+  <text class="label" x="770" y="120">SB-4</text>
+  <rect class="room" x="900" y="60" width="140" height="110"/>
+  <text class="label" x="970" y="120">SB-5</text>
+  <rect class="room" x="1100" y="60" width="140" height="110"/>
+  <text class="label" x="1170" y="120">SB-6</text>
+  <rect class="room" x="1300" y="60" width="140" height="110"/>
+  <text class="label" x="1370" y="120">SB-7</text>
+  <!-- Rooms - South side -->
+  <rect class="room" x="100" y="1030" width="140" height="100"/>
+  <text class="label" x="170" y="1085">SB-10</text>
+  <rect class="room" x="280" y="1030" width="140" height="100"/>
+  <text class="label" x="350" y="1085">SB-11</text>
+  <rect class="room" x="500" y="1030" width="140" height="100"/>
+  <text class="label" x="570" y="1085">SB-12</text>
+  <rect class="room" x="700" y="1030" width="140" height="100"/>
+  <text class="label" x="770" y="1085">SB-13</text>
+  <rect class="room" x="900" y="1030" width="140" height="100"/>
+  <text class="label" x="970" y="1085">SB-14</text>
+  <rect class="room" x="1100" y="1030" width="140" height="100"/>
+  <text class="label" x="1170" y="1085">SB-15</text>
+  <text class="wing-label" x="800" y="170">North</text>
+  <text class="wing-label" x="800" y="1020">South</text>
+  <text class="wing-label" x="110" y="600">West</text>
+  <text class="wing-label" x="1490" y="600">East</text>
+  <!-- Elevators -->
+  <rect class="landmark" x="400" y="185" width="30" height="30"/>
+  <text class="amenity" x="415" y="205">E</text>
+  <rect class="landmark" x="1170" y="185" width="30" height="30"/>
+  <text class="amenity" x="1185" y="205">E</text>
+  <!-- Stairs -->
+  <rect class="landmark" x="600" y="185" width="30" height="30"/>
+  <text class="amenity" x="615" y="205">S</text>
+  <rect class="landmark" x="970" y="185" width="30" height="30"/>
+  <text class="amenity" x="985" y="205">S</text>
+  <!-- Restrooms -->
+  <rect class="landmark" x="780" y="185" width="30" height="30"/>
+  <text class="amenity" x="795" y="205">R</text>
+  <rect class="landmark" x="780" y="975" width="30" height="30"/>
+  <text class="amenity" x="795" y="995">R</text>
+  <!-- Tunnel to Dirksen -->
+  <rect class="landmark" x="700" y="55" width="200" height="30"/>
+  <text class="amenity" x="800" y="75">TUNNEL to Dirksen</text>
+  <!-- Tunnel to Capitol -->
+  <rect class="landmark" x="60" y="560" width="110" height="35"/>
+  <text class="amenity" x="115" y="583">TUNNEL</text>
+</svg>

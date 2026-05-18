@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1200">
+  <defs>
+    <style>
+      .wall { fill: none; stroke: #2d3748; stroke-width: 3; }
+      .room { fill: #edf2f7; stroke: #a0aec0; stroke-width: 1; }
+      .hallway { fill: #f7fafc; stroke: #cbd5e0; stroke-width: 1; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #4a5568; text-anchor: middle; }
+      .title { font-family: Arial, sans-serif; font-size: 18px; fill: #1a202c; font-weight: bold; text-anchor: middle; }
+      .wing-label { font-family: Arial, sans-serif; font-size: 14px; fill: #718096; text-anchor: middle; font-style: italic; }
+      .amenity { font-family: Arial, sans-serif; font-size: 11px; fill: #3182ce; text-anchor: middle; font-weight: bold; }
+      .landmark { fill: #ebf8ff; stroke: #3182ce; stroke-width: 2; }
+    </style>
+  </defs>
+  <text class="title" x="1000" y="30">Rayburn House Office Building - Basement</text>
+  <!-- Building outline -->
+  <rect class="wall" x="50" y="50" width="1900" height="1100" rx="5"/>
+  <!-- Outer courtyard -->
+  <rect class="wall" x="250" y="200" width="600" height="400" rx="3"/>
+  <!-- Middle courtyard -->
+  <rect class="wall" x="750" y="200" width="500" height="400" rx="3"/>
+  <!-- Inner courtyard -->
+  <rect class="wall" x="1350" y="200" width="500" height="400" rx="3"/>
+  <!-- North corridor -->
+  <rect class="hallway" x="60" y="130" width="1880" height="60"/>
+  <!-- South corridor -->
+  <rect class="hallway" x="60" y="620" width="1880" height="60"/>
+  <!-- West corridor -->
+  <rect class="hallway" x="130" y="130" width="60" height="550"/>
+  <!-- East corridor -->
+  <rect class="hallway" x="1810" y="130" width="60" height="550"/>
+  <!-- Central N-S corridor -->
+  <rect class="hallway" x="970" y="130" width="60" height="550"/>
+  <!-- Basement south corridor -->
+  <rect class="hallway" x="60" y="800" width="1880" height="60"/>
+  <!-- Rooms - North wing -->
+  <rect class="room" x="200" y="70" width="120" height="55"/>
+  <text class="label" x="260" y="103">B-300</text>
+  <rect class="room" x="340" y="70" width="120" height="55"/>
+  <text class="label" x="400" y="103">B-301</text>
+  <rect class="room" x="480" y="70" width="120" height="55"/>
+  <text class="label" x="540" y="103">B-302</text>
+  <rect class="room" x="620" y="70" width="120" height="55"/>
+  <text class="label" x="680" y="103">B-303</text>
+  <rect class="room" x="1100" y="70" width="120" height="55"/>
+  <text class="label" x="1160" y="103">B-304</text>
+  <rect class="room" x="1240" y="70" width="120" height="55"/>
+  <text class="label" x="1300" y="103">B-305</text>
+  <rect class="room" x="1500" y="70" width="120" height="55"/>
+  <text class="label" x="1560" y="103">B-306</text>
+  <rect class="room" x="1640" y="70" width="120" height="55"/>
+  <text class="label" x="1700" y="103">B-307</text>
+  <!-- Rooms - South wing -->
+  <rect class="room" x="200" y="690" width="120" height="100"/>
+  <text class="label" x="260" y="745">B-310</text>
+  <rect class="room" x="340" y="690" width="120" height="100"/>
+  <text class="label" x="400" y="745">B-311</text>
+  <rect class="room" x="480" y="690" width="120" height="100"/>
+  <text class="label" x="540" y="745">B-312</text>
+  <rect class="room" x="620" y="690" width="120" height="100"/>
+  <text class="label" x="680" y="745">B-313</text>
+  <rect class="room" x="1100" y="690" width="120" height="100"/>
+  <text class="label" x="1160" y="745">B-314</text>
+  <rect class="room" x="1240" y="690" width="120" height="100"/>
+  <text class="label" x="1300" y="745">B-315</text>
+  <rect class="room" x="1500" y="690" width="120" height="100"/>
+  <text class="label" x="1560" y="745">B-316</text>
+  <rect class="room" x="1640" y="690" width="120" height="100"/>
+  <text class="label" x="1700" y="745">B-317</text>
+  <!-- Wing labels -->
+  <text class="wing-label" x="1000" y="115">North Wing</text>
+  <text class="wing-label" x="1000" y="780">South Wing</text>
+  <text class="wing-label" x="100" y="450">West</text>
+  <text class="wing-label" x="1900" y="450">East</text>
+  <!-- Elevators -->
+  <rect class="landmark" x="750" y="135" width="30" height="30"/>
+  <text class="amenity" x="765" y="155">E</text>
+  <rect class="landmark" x="1220" y="135" width="30" height="30"/>
+  <text class="amenity" x="1235" y="155">E</text>
+  <rect class="landmark" x="750" y="625" width="30" height="30"/>
+  <text class="amenity" x="765" y="645">E</text>
+  <rect class="landmark" x="1220" y="625" width="30" height="30"/>
+  <text class="amenity" x="1235" y="645">E</text>
+  <!-- Stairs -->
+  <rect class="landmark" x="850" y="135" width="30" height="30"/>
+  <text class="amenity" x="865" y="155">S</text>
+  <rect class="landmark" x="1120" y="135" width="30" height="30"/>
+  <text class="amenity" x="1135" y="155">S</text>
+  <!-- Restrooms -->
+  <rect class="landmark" x="900" y="135" width="30" height="30"/>
+  <text class="amenity" x="915" y="155">R</text>
+  <rect class="landmark" x="900" y="625" width="30" height="30"/>
+  <text class="amenity" x="915" y="645">R</text>
+  <!-- Tunnel access -->
+  <rect class="landmark" x="60" y="870" width="120" height="40"/>
+  <text class="amenity" x="120" y="895">TUNNEL</text>
+  <rect class="landmark" x="1820" y="870" width="120" height="40"/>
+  <text class="amenity" x="1880" y="895">TUNNEL</text>
+</svg>

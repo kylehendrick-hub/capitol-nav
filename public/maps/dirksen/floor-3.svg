@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <defs>
+    <style>
+      .wall { fill: none; stroke: #2d3748; stroke-width: 3; }
+      .room { fill: #edf2f7; stroke: #a0aec0; stroke-width: 1; }
+      .hallway { fill: #f7fafc; stroke: #cbd5e0; stroke-width: 1; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #4a5568; text-anchor: middle; }
+      .title { font-family: Arial, sans-serif; font-size: 18px; fill: #1a202c; font-weight: bold; text-anchor: middle; }
+      .amenity { font-family: Arial, sans-serif; font-size: 11px; fill: #3182ce; text-anchor: middle; font-weight: bold; }
+      .landmark { fill: #ebf8ff; stroke: #3182ce; stroke-width: 2; }
+    </style>
+  </defs>
+  <text class="title" x="800" y="30">Dirksen Senate Office Building - 3rd Floor</text>
+  <rect class="wall" x="50" y="50" width="400" height="900" rx="5"/>
+  <rect class="wall" x="1150" y="50" width="400" height="900" rx="5"/>
+  <rect class="wall" x="450" y="550" width="700" height="400" rx="5"/>
+  <rect class="hallway" x="220" y="60" width="50" height="880"/>
+  <rect class="hallway" x="1330" y="60" width="50" height="880"/>
+  <rect class="hallway" x="220" y="720" width="1160" height="50"/>
+  <rect class="room" x="60" y="120" width="150" height="100"/>
+  <text class="label" x="135" y="175">SD-300</text>
+  <rect class="room" x="60" y="230" width="150" height="100"/>
+  <text class="label" x="135" y="285">SD-301</text>
+  <rect class="room" x="60" y="340" width="150" height="100"/>
+  <text class="label" x="135" y="395">SD-302</text>
+  <rect class="room" x="280" y="120" width="150" height="100"/>
+  <text class="label" x="355" y="175">SD-304</text>
+  <rect class="room" x="280" y="230" width="150" height="100"/>
+  <text class="label" x="355" y="285">SD-305</text>
+  <rect class="room" x="1160" y="120" width="150" height="100"/>
+  <text class="label" x="1235" y="175">SD-310</text>
+  <rect class="room" x="1160" y="230" width="150" height="100"/>
+  <text class="label" x="1235" y="285">SD-311</text>
+  <rect class="room" x="1390" y="120" width="150" height="100"/>
+  <text class="label" x="1465" y="175">SD-312</text>
+  <rect class="room" x="1390" y="230" width="150" height="100"/>
+  <text class="label" x="1465" y="285">SD-313</text>
+  <rect class="landmark" x="225" y="400" width="30" height="30"/>
+  <text class="amenity" x="240" y="420">E</text>
+  <rect class="landmark" x="1335" y="400" width="30" height="30"/>
+  <text class="amenity" x="1350" y="420">E</text>
+  <rect class="landmark" x="225" y="200" width="30" height="30"/>
+  <text class="amenity" x="240" y="220">S</text>
+  <rect class="landmark" x="1335" y="200" width="30" height="30"/>
+  <text class="amenity" x="1350" y="220">S</text>
+  <rect class="landmark" x="750" y="725" width="30" height="30"/>
+  <text class="amenity" x="765" y="745">R</text>
+</svg>

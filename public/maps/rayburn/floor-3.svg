@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1200">
+  <defs>
+    <style>
+      .wall { fill: none; stroke: #2d3748; stroke-width: 3; }
+      .room { fill: #edf2f7; stroke: #a0aec0; stroke-width: 1; }
+      .hallway { fill: #f7fafc; stroke: #cbd5e0; stroke-width: 1; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #4a5568; text-anchor: middle; }
+      .title { font-family: Arial, sans-serif; font-size: 18px; fill: #1a202c; font-weight: bold; text-anchor: middle; }
+      .wing-label { font-family: Arial, sans-serif; font-size: 14px; fill: #718096; text-anchor: middle; font-style: italic; }
+      .amenity { font-family: Arial, sans-serif; font-size: 11px; fill: #3182ce; text-anchor: middle; font-weight: bold; }
+      .landmark { fill: #ebf8ff; stroke: #3182ce; stroke-width: 2; }
+    </style>
+  </defs>
+  <text class="title" x="1000" y="30">Rayburn House Office Building - 3rd Floor</text>
+  <rect class="wall" x="50" y="50" width="1900" height="1100" rx="5"/>
+  <rect class="wall" x="250" y="220" width="500" height="350" rx="3"/>
+  <rect class="wall" x="800" y="220" width="400" height="350" rx="3"/>
+  <rect class="wall" x="1250" y="220" width="500" height="350" rx="3"/>
+  <rect class="hallway" x="60" y="150" width="1880" height="60"/>
+  <rect class="hallway" x="60" y="580" width="1880" height="60"/>
+  <rect class="hallway" x="140" y="150" width="60" height="490"/>
+  <rect class="hallway" x="1800" y="150" width="60" height="490"/>
+  <rect class="hallway" x="760" y="150" width="60" height="490"/>
+  <rect class="hallway" x="1200" y="150" width="60" height="490"/>
+  <!-- Rooms - North -->
+  <rect class="room" x="210" y="65" width="110" height="80"/>
+  <text class="label" x="265" y="110">2301</text>
+  <rect class="room" x="330" y="65" width="110" height="80"/>
+  <text class="label" x="385" y="110">2302</text>
+  <rect class="room" x="450" y="65" width="110" height="80"/>
+  <text class="label" x="505" y="110">2303</text>
+  <rect class="room" x="570" y="65" width="110" height="80"/>
+  <text class="label" x="625" y="110">2304</text>
+  <rect class="room" x="830" y="65" width="110" height="80"/>
+  <text class="label" x="885" y="110">2305</text>
+  <rect class="room" x="950" y="65" width="110" height="80"/>
+  <text class="label" x="1005" y="110">2306</text>
+  <rect class="room" x="1270" y="65" width="110" height="80"/>
+  <text class="label" x="1325" y="110">2307</text>
+  <rect class="room" x="1390" y="65" width="110" height="80"/>
+  <text class="label" x="1445" y="110">2308</text>
+  <!-- Rooms - South -->
+  <rect class="room" x="210" y="650" width="110" height="80"/>
+  <text class="label" x="265" y="695">2321</text>
+  <rect class="room" x="330" y="650" width="110" height="80"/>
+  <text class="label" x="385" y="695">2322</text>
+  <rect class="room" x="450" y="650" width="110" height="80"/>
+  <text class="label" x="505" y="695">2323</text>
+  <rect class="room" x="570" y="650" width="110" height="80"/>
+  <text class="label" x="625" y="695">2324</text>
+  <rect class="room" x="830" y="650" width="110" height="80"/>
+  <text class="label" x="885" y="695">2325</text>
+  <rect class="room" x="950" y="650" width="110" height="80"/>
+  <text class="label" x="1005" y="695">2326</text>
+  <text class="wing-label" x="1000" y="140">North Wing</text>
+  <text class="wing-label" x="1000" y="670">South Wing</text>
+  <text class="wing-label" x="100" y="400">West</text>
+  <text class="wing-label" x="1900" y="400">East</text>
+  <rect class="landmark" x="700" y="155" width="30" height="30"/>
+  <text class="amenity" x="715" y="175">E</text>
+  <rect class="landmark" x="1140" y="155" width="30" height="30"/>
+  <text class="amenity" x="1155" y="175">E</text>
+  <rect class="landmark" x="700" y="585" width="30" height="30"/>
+  <text class="amenity" x="715" y="605">E</text>
+  <rect class="landmark" x="1140" y="585" width="30" height="30"/>
+  <text class="amenity" x="1155" y="605">E</text>
+  <rect class="landmark" x="400" y="155" width="30" height="30"/>
+  <text class="amenity" x="415" y="175">S</text>
+  <rect class="landmark" x="1500" y="155" width="30" height="30"/>
+  <text class="amenity" x="1515" y="175">S</text>
+  <rect class="landmark" x="920" y="155" width="30" height="30"/>
+  <text class="amenity" x="935" y="175">R</text>
+  <rect class="landmark" x="920" y="585" width="30" height="30"/>
+  <text class="amenity" x="935" y="605">R</text>
+</svg>

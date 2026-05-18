@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <defs>
+    <style>
+      .wall { fill: none; stroke: #2d3748; stroke-width: 3; }
+      .room { fill: #edf2f7; stroke: #a0aec0; stroke-width: 1; }
+      .hallway { fill: #f7fafc; stroke: #cbd5e0; stroke-width: 1; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #4a5568; text-anchor: middle; }
+      .title { font-family: Arial, sans-serif; font-size: 18px; fill: #1a202c; font-weight: bold; text-anchor: middle; }
+      .wing-label { font-family: Arial, sans-serif; font-size: 14px; fill: #718096; text-anchor: middle; font-style: italic; }
+      .amenity { font-family: Arial, sans-serif; font-size: 11px; fill: #3182ce; text-anchor: middle; font-weight: bold; }
+      .landmark { fill: #ebf8ff; stroke: #3182ce; stroke-width: 2; }
+    </style>
+  </defs>
+  <text class="title" x="800" y="30">Cannon House Office Building - 3rd Floor</text>
+  <rect class="wall" x="50" y="50" width="1500" height="900" rx="5"/>
+  <rect class="wall" x="400" y="280" width="800" height="440" rx="3"/>
+  <rect class="hallway" x="60" y="180" width="1480" height="50"/>
+  <rect class="hallway" x="60" y="770" width="1480" height="50"/>
+  <rect class="hallway" x="200" y="180" width="50" height="640"/>
+  <rect class="hallway" x="1350" y="180" width="50" height="640"/>
+  <rect class="room" x="100" y="60" width="130" height="110"/>
+  <text class="label" x="165" y="120">300</text>
+  <rect class="room" x="260" y="60" width="130" height="110"/>
+  <text class="label" x="325" y="120">301</text>
+  <rect class="room" x="500" y="60" width="130" height="110"/>
+  <text class="label" x="565" y="120">302</text>
+  <rect class="room" x="660" y="60" width="130" height="110"/>
+  <text class="label" x="725" y="120">303</text>
+  <rect class="room" x="820" y="60" width="130" height="110"/>
+  <text class="label" x="885" y="120">304</text>
+  <rect class="room" x="980" y="60" width="130" height="110"/>
+  <text class="label" x="1045" y="120">305</text>
+  <rect class="room" x="100" y="830" width="130" height="100"/>
+  <text class="label" x="165" y="885">306</text>
+  <rect class="room" x="260" y="830" width="130" height="100"/>
+  <text class="label" x="325" y="885">307</text>
+  <rect class="room" x="500" y="830" width="130" height="100"/>
+  <text class="label" x="565" y="885">308</text>
+  <rect class="room" x="660" y="830" width="130" height="100"/>
+  <text class="label" x="725" y="885">309</text>
+  <rect class="landmark" x="420" y="185" width="30" height="30"/>
+  <text class="amenity" x="435" y="205">E</text>
+  <rect class="landmark" x="1150" y="185" width="30" height="30"/>
+  <text class="amenity" x="1165" y="205">E</text>
+  <rect class="landmark" x="480" y="185" width="30" height="30"/>
+  <text class="amenity" x="495" y="205">S</text>
+  <rect class="landmark" x="1090" y="185" width="30" height="30"/>
+  <text class="amenity" x="1105" y="205">S</text>
+  <rect class="landmark" x="750" y="185" width="30" height="30"/>
+  <text class="amenity" x="765" y="205">R</text>
+</svg>

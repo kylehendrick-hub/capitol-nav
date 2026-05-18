@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1000">
+  <defs>
+    <style>
+      .wall { fill: none; stroke: #2d3748; stroke-width: 3; }
+      .room { fill: #edf2f7; stroke: #a0aec0; stroke-width: 1; }
+      .hallway { fill: #f7fafc; stroke: #cbd5e0; stroke-width: 1; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #4a5568; text-anchor: middle; }
+      .title { font-family: Arial, sans-serif; font-size: 18px; fill: #1a202c; font-weight: bold; text-anchor: middle; }
+      .wing-label { font-family: Arial, sans-serif; font-size: 14px; fill: #718096; text-anchor: middle; font-style: italic; }
+      .amenity { font-family: Arial, sans-serif; font-size: 11px; fill: #3182ce; text-anchor: middle; font-weight: bold; }
+      .landmark { fill: #ebf8ff; stroke: #3182ce; stroke-width: 2; }
+    </style>
+  </defs>
+  <text class="title" x="900" y="30">Longworth House Office Building - Basement</text>
+  <!-- H-shape: two vertical bars connected by horizontal bar -->
+  <!-- Left vertical bar -->
+  <rect class="wall" x="50" y="50" width="500" height="900" rx="5"/>
+  <!-- Right vertical bar -->
+  <rect class="wall" x="1250" y="50" width="500" height="900" rx="5"/>
+  <!-- Central connecting bar -->
+  <rect class="wall" x="550" y="300" width="700" height="400" rx="5"/>
+  <!-- Left wing N-S corridor -->
+  <rect class="hallway" x="270" y="60" width="60" height="880"/>
+  <!-- Right wing N-S corridor -->
+  <rect class="hallway" x="1470" y="60" width="60" height="880"/>
+  <!-- Central E-W corridor -->
+  <rect class="hallway" x="270" y="470" width="1260" height="60"/>
+  <!-- Left wing rooms - west side -->
+  <rect class="room" x="60" y="80" width="200" height="90"/>
+  <text class="label" x="160" y="130">B-100</text>
+  <rect class="room" x="60" y="180" width="200" height="90"/>
+  <text class="label" x="160" y="230">B-101</text>
+  <rect class="room" x="60" y="280" width="200" height="90"/>
+  <text class="label" x="160" y="330">B-102</text>
+  <rect class="room" x="60" y="560" width="200" height="90"/>
+  <text class="label" x="160" y="610">B-103</text>
+  <rect class="room" x="60" y="660" width="200" height="90"/>
+  <text class="label" x="160" y="710">B-104</text>
+  <rect class="room" x="60" y="760" width="200" height="90"/>
+  <text class="label" x="160" y="810">B-105</text>
+  <!-- Left wing rooms - east side -->
+  <rect class="room" x="340" y="80" width="200" height="90"/>
+  <text class="label" x="440" y="130">B-106</text>
+  <rect class="room" x="340" y="180" width="200" height="90"/>
+  <text class="label" x="440" y="230">B-107</text>
+  <rect class="room" x="340" y="560" width="200" height="90"/>
+  <text class="label" x="440" y="610">B-108</text>
+  <rect class="room" x="340" y="660" width="200" height="90"/>
+  <text class="label" x="440" y="710">B-109</text>
+  <!-- Right wing rooms - west side -->
+  <rect class="room" x="1260" y="80" width="200" height="90"/>
+  <text class="label" x="1360" y="130">B-110</text>
+  <rect class="room" x="1260" y="180" width="200" height="90"/>
+  <text class="label" x="1360" y="230">B-111</text>
+  <rect class="room" x="1260" y="560" width="200" height="90"/>
+  <text class="label" x="1360" y="610">B-112</text>
+  <rect class="room" x="1260" y="660" width="200" height="90"/>
+  <text class="label" x="1360" y="710">B-113</text>
+  <!-- Right wing rooms - east side -->
+  <rect class="room" x="1540" y="80" width="200" height="90"/>
+  <text class="label" x="1640" y="130">B-114</text>
+  <rect class="room" x="1540" y="180" width="200" height="90"/>
+  <text class="label" x="1640" y="230">B-115</text>
+  <rect class="room" x="1540" y="560" width="200" height="90"/>
+  <text class="label" x="1640" y="610">B-116</text>
+  <rect class="room" x="1540" y="660" width="200" height="90"/>
+  <text class="label" x="1640" y="710">B-117</text>
+  <!-- Wing labels -->
+  <text class="wing-label" x="300" y="460">West Wing</text>
+  <text class="wing-label" x="1500" y="460">East Wing</text>
+  <text class="wing-label" x="900" y="380">Central Connector</text>
+  <!-- Elevators -->
+  <rect class="landmark" x="275" y="395" width="30" height="30"/>
+  <text class="amenity" x="290" y="415">E</text>
+  <rect class="landmark" x="1475" y="395" width="30" height="30"/>
+  <text class="amenity" x="1490" y="415">E</text>
+  <!-- Stairs -->
+  <rect class="landmark" x="275" y="130" width="30" height="30"/>
+  <text class="amenity" x="290" y="150">S</text>
+  <rect class="landmark" x="1475" y="130" width="30" height="30"/>
+  <text class="amenity" x="1490" y="150">S</text>
+  <!-- Restrooms -->
+  <rect class="landmark" x="850" y="475" width="30" height="30"/>
+  <text class="amenity" x="865" y="495">R</text>
+  <rect class="landmark" x="950" y="475" width="30" height="30"/>
+  <text class="amenity" x="965" y="495">R</text>
+  <!-- Tunnel -->
+  <rect class="landmark" x="850" y="660" width="100" height="35"/>
+  <text class="amenity" x="900" y="683">TUNNEL</text>
+</svg>
