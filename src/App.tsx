@@ -494,7 +494,7 @@ function AppInner() {
         <div className="setup-screen">
           <div className="setup-header">
             <button className="setup-back" onClick={() => setScreen('location')}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 19l-7-7 7-7" stroke="#007aff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 19l-7-7 7-7" stroke="#0a84ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </button>
           </div>
           <div className="setup-body">
@@ -767,13 +767,13 @@ function AppInner() {
                 <div key={i}>
                   {newBuilding && bldg && (
                     <div style={{
-                      padding: '8px 16px',
+                      padding: '8px 20px',
                       fontSize: 12,
                       fontWeight: 700,
                       color: '#0a84ff',
-                      background: '#2c2c2e',
-                      borderBottom: '1px solid #48484a',
-                      textTransform: 'uppercase',
+                      background: '#1c1c1e',
+                      borderBottom: '1px solid #2c2c2e',
+                      textTransform: 'uppercase' as const,
                       letterSpacing: 0.5,
                     }}>
                       Entering {bldg.shortName}
@@ -782,7 +782,7 @@ function AppInner() {
                   <button
                     className={`dir-step ${isActive ? 'active' : ''} ${isArrival ? 'dir-step-arrive' : ''}`}
                     onClick={() => setActiveStepIdx(i)}
-                    style={{ width: '100%', border: 'none', cursor: 'pointer', background: 'none' }}
+                    style={{ width: '100%', border: 'none', cursor: 'pointer', background: 'transparent' }}
                   >
                     <div className="dir-icon-wrap">
                       <StepIcon type={step.type} size={20} color={isActive ? '#fff' : isArrival ? '#fff' : '#8e8e93'} />

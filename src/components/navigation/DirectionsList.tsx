@@ -38,7 +38,7 @@ export function DirectionsList({ route, activeStepIndex, onStepClick }: Directio
         {route.accessible && <span className="route-badge badge-accessible">♿ Accessible</span>}
         {route.buildings.map(bId => {
           const b = BUILDING_MAP.get(bId);
-          return b ? <span key={bId} className="route-badge" style={{ background: '#edf2f7' }}>{b.abbreviation}</span> : null;
+          return b ? <span key={bId} className="route-badge" style={{ background: '#2c2c2e', color: '#fff' }}>{b.abbreviation}</span> : null;
         })}
       </div>
 

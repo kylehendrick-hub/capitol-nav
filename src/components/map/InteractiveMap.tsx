@@ -91,7 +91,7 @@ export function InteractiveMap({ onRoomSelect, route, graph, routeBuildings, sta
     L.control.zoom({ position: 'topright' }).addTo(map);
 
     // Street labels
-    const streetStyle: L.PolylineOptions = { color: '#c7c7cc', weight: 1.5, dashArray: '8 4', opacity: 0.6 };
+    const streetStyle: L.PolylineOptions = { color: '#48484a', weight: 1.5, dashArray: '8 4', opacity: 0.6 };
     L.polyline([[190, 0], [190, 550]], streetStyle).addTo(map);
     L.polyline([[310, 0], [310, 550]], streetStyle).addTo(map);
 
@@ -111,7 +111,7 @@ export function InteractiveMap({ onRoomSelect, route, graph, routeBuildings, sta
       const ca = BUILDING_POSITIONS[a]?.center;
       const cb = BUILDING_POSITIONS[b]?.center;
       if (ca && cb) {
-        L.polyline([ca, cb], { color: '#48bb78', weight: 2, dashArray: '6 4', opacity: 0.5 }).addTo(tunnelGroup);
+        L.polyline([ca, cb], { color: '#30d158', weight: 2, dashArray: '6 4', opacity: 0.4 }).addTo(tunnelGroup);
       }
     });
 
@@ -124,9 +124,9 @@ export function InteractiveMap({ onRoomSelect, route, graph, routeBuildings, sta
       if (!pos) return;
 
       const rect = L.rectangle(pos.bounds as L.LatLngBoundsExpression, {
-        color: '#c7c7cc',
+        color: '#48484a',
         weight: 1.5,
-        fillColor: '#e8e8ed',
+        fillColor: '#2c2c2e',
         fillOpacity: 0.85,
         className: 'building-rect',
         pane: 'buildingPane',
@@ -215,10 +215,10 @@ export function InteractiveMap({ onRoomSelect, route, graph, routeBuildings, sta
           .filter(Boolean) as [number, number][];
 
         // Glow
-        L.polyline(points, { color: '#007aff', weight: 8, opacity: 0.25, lineCap: 'round', lineJoin: 'round', pane: 'routePane' })
+        L.polyline(points, { color: '#0a84ff', weight: 8, opacity: 0.25, lineCap: 'round', lineJoin: 'round', pane: 'routePane' })
           .addTo(routeLayerRef.current);
         // Main line
-        L.polyline(points, { color: '#007aff', weight: 4, opacity: 0.9, lineCap: 'round', lineJoin: 'round', pane: 'routePane' })
+        L.polyline(points, { color: '#0a84ff', weight: 4, opacity: 0.9, lineCap: 'round', lineJoin: 'round', pane: 'routePane' })
           .addTo(routeLayerRef.current);
       }
     }
@@ -227,7 +227,7 @@ export function InteractiveMap({ onRoomSelect, route, graph, routeBuildings, sta
     if (startBuildingId && routeLayerRef.current) {
       const startCenter = BUILDING_POSITIONS[startBuildingId]?.center;
       if (startCenter) {
-        L.circleMarker(startCenter as L.LatLngExpression, { radius: 8, fillColor: '#34c759', fillOpacity: 1, color: '#fff', weight: 3, pane: 'routePane' })
+        L.circleMarker(startCenter as L.LatLngExpression, { radius: 8, fillColor: '#30d158', fillOpacity: 1, color: '#fff', weight: 3, pane: 'routePane' })
           .addTo(routeLayerRef.current);
       }
     }
@@ -245,11 +245,11 @@ export function InteractiveMap({ onRoomSelect, route, graph, routeBuildings, sta
       const isStart = id === startBuildingId;
       const isEnd = id === endBuildingId;
 
-      let fillColor = '#e8e8ed';
-      let borderColor = '#c7c7cc';
-      if (isStart) { fillColor = '#dcfce7'; borderColor = '#34c759'; }
-      else if (isEnd) { fillColor = '#fee2e2'; borderColor = '#ff3b30'; }
-      else if (isOnRoute) { fillColor = '#dbeafe'; borderColor = '#007aff'; }
+      let fillColor = '#2c2c2e';
+      let borderColor = '#48484a';
+      if (isStart) { fillColor = 'rgba(48,209,88,0.2)'; borderColor = '#30d158'; }
+      else if (isEnd) { fillColor = 'rgba(255,69,58,0.2)'; borderColor = '#ff453a'; }
+      else if (isOnRoute) { fillColor = 'rgba(10,132,255,0.15)'; borderColor = '#0a84ff'; }
 
       rect.setStyle({ fillColor, color: borderColor, weight: (isStart || isEnd || isOnRoute) ? 2.5 : 1.5 });
     });
@@ -448,7 +448,7 @@ export function InteractiveMap({ onRoomSelect, route, graph, routeBuildings, sta
         }).addTo(layer);
         // Blue glow
         L.polyline(seg.points, {
-          color: '#007aff', weight: 9, opacity: 0.2,
+          color: '#0a84ff', weight: 9, opacity: 0.2,
           lineCap: 'round', lineJoin: 'round', pane: p,
         }).addTo(layer);
         // White outline (creates the bordered look)
@@ -458,7 +458,7 @@ export function InteractiveMap({ onRoomSelect, route, graph, routeBuildings, sta
         }).addTo(layer);
         // Main blue line
         L.polyline(seg.points, {
-          color: '#007aff', weight: 5, opacity: 1,
+          color: '#0a84ff', weight: 5, opacity: 1,
           lineCap: 'round', lineJoin: 'round', pane: p,
         }).addTo(layer);
 
@@ -498,9 +498,9 @@ export function InteractiveMap({ onRoomSelect, route, graph, routeBuildings, sta
     if (routeStart && routeStart.buildingId === activeBuilding && routeStart.floorId === activeFloor) {
       const c = toMap(routeStart);
       // Blue dot with white ring (Apple Maps "you are here")
-      L.circleMarker(c, { radius: 12, fillColor: '#007aff', fillOpacity: 0.15, color: '#007aff', weight: 2, className: 'start-pulse', pane: 'indoorRoutePane' }).addTo(layer);
+      L.circleMarker(c, { radius: 12, fillColor: '#0a84ff', fillOpacity: 0.15, color: '#0a84ff', weight: 2, className: 'start-pulse', pane: 'indoorRoutePane' }).addTo(layer);
       L.circleMarker(c, { radius: 7, fillColor: '#fff', fillOpacity: 1, color: '#fff', weight: 0, pane: 'indoorRoutePane' }).addTo(layer);
-      L.circleMarker(c, { radius: 5, fillColor: '#007aff', fillOpacity: 1, color: '#007aff', weight: 0, pane: 'indoorRoutePane' }).addTo(layer);
+      L.circleMarker(c, { radius: 5, fillColor: '#0a84ff', fillOpacity: 1, color: '#0a84ff', weight: 0, pane: 'indoorRoutePane' }).addTo(layer);
     }
 
     if (routeEnd && routeEnd.buildingId === activeBuilding && routeEnd.floorId === activeFloor) {

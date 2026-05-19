@@ -64,9 +64,9 @@ export function InfoPage({ onNavigateTo }: InfoPageProps) {
           <h2 style={{ fontSize: 18, margin: '24px 0 16px' }}>Tunnel Connections</h2>
           <div className="card" style={{ fontSize: 13, lineHeight: 1.8 }}>
             {TUNNEL_CONNECTIONS.map((t, i) => (
-              <div key={i} style={{ padding: '4px 0', borderBottom: i < TUNNEL_CONNECTIONS.length - 1 ? '1px solid #e2e8f0' : 'none' }}>
+              <div key={i} style={{ padding: '4px 0', borderBottom: i < TUNNEL_CONNECTIONS.length - 1 ? '1px solid #2c2c2e' : 'none' }}>
                 {t.hasSubway ? '🚃' : '🚶'} {t.label}
-                <span style={{ color: '#718096', marginLeft: 8 }}>
+                <span style={{ color: '#8e8e93', marginLeft: 8 }}>
                   ~{Math.ceil(t.walkTime / 60)} min walk
                   {t.hasSubway && t.subwayTime ? ` / ~${Math.ceil(t.subwayTime / 60)} min subway` : ''}
                 </span>
